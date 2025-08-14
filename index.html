@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدليل الشامل لدورة حياة حلقة بودكاست «تقارب»</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+            background-color: #f7f7f5;
+        }
+        .notion-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            background-color: white;
+            padding: 2rem 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1, h2, h3 {
+            font-weight: 600;
+            color: #1a202c;
+        }
+        h1 { font-size: 2.25rem; margin-bottom: 1rem; }
+        h2 { font-size: 1.75rem; margin-top: 2.5rem; margin-bottom: 1rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.5rem;}
+        h3 { font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #2d3748;}
+        p, li { color: #4a5568; line-height: 1.8; }
+        ul { list-style-position: inside; }
+        .callout {
+            background-color: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            border-right: 4px solid #3b82f6;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1.5rem 0;
+            display: flex;
+            align-items: flex-start;
+        }
+        .callout-icon {
+            margin-left: 0.75rem;
+            color: #3b82f6;
+            flex-shrink: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+        th, td {
+            text-align: right;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        th {
+            background-color: #f8fafc;
+            font-weight: 500;
+        }
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .tag-blue { background-color: #dbeafe; color: #1e40af; }
+        .tag-green { background-color: #dcfce7; color: #166534; }
+        .tag-yellow { background-color: #fef9c3; color: #854d0e; }
+        .tag-red { background-color: #fee2e2; color: #991b1b; }
+        .tag-purple { background-color: #f3e8ff; color: #6b21a8; }
+        .tag-pink { background-color: #fce7f3; color: #9d174d; }
+
+        /* Vertical Workflow Styles */
+        .workflow-container {
+            position: relative;
+            padding: 2rem 0;
+        }
+        .workflow-line {
+            position: absolute;
+            right: 20px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background-color: #e2e8f0;
+            z-index: 1;
+        }
+        .workflow-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-right: 60px;
+            z-index: 2;
+        }
+        .workflow-dot {
+            position: absolute;
+            right: 0;
+            top: 5px;
+            width: 42px;
+            height: 42px;
+            background-color: #3b82f6;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            border: 4px solid white;
+            box-shadow: 0 0 0 3px #3b82f6;
+        }
+        .workflow-content h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        .workflow-content p {
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        /* Timeline Styles */
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .timeline-day {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+        .timeline-day h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-align: center;
+            border-bottom: 2px solid #cbd5e1;
+            padding-bottom: 0.75rem;
+        }
+        .timeline-task {
+            background-color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            margin-bottom: 0.75rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .parallel-icon {
+            color: #64748b;
+            flex-shrink: 0;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="notion-container">
+        <!-- Header -->
+        <h1>الدليل الشامل والمفصّل لدورة حياة حلقة بودكاست «تقارب» (v2.0)</h1>
+        <p class="text-gray-500 text-lg">المرجع التشغيلي الرسمي لسير العمل من الفكرة إلى الأرشفة</p>
+        <p class="text-sm text-gray-400 mb-8">آخر تحديث: 14 أغسطس 2025</p>
+
+        <!-- Introduction -->
+        <div id="introduction">
+            <h2>مقدّمة</h2>
+            <p>تمثل هذه الوثيقة المرجع الرسمي والوحيد لسير العمل (Workflow) في إنتاج حلقات بودكاست «تقارب». الهدف ليس فقط توحيد الإجراءات، بل ترسيخ ثقافة الدقة والاحترافية بما يضمن تقديم منتج نهائي عالي الجودة بشكل مستمر. عبر تحديد المسؤوليات بوضوح ووضع أطر زمنية واقعية (SLA)، نقلل المخاطر التشغيلية، ونعزز التعاون بين الفرق، ونضمن أعلى مستويات الكفاءة في جميع مراحل الإنتاج، من الفكرة وحتى الأرشفة النهائية.</p>
+            <p>كل مرحلة موضحة بالتفصيل وتشمل: الزمن التقديري للإنجاز (SLA)، المدخلات، المخرجات، والاعتمادات (Gates) التي تحكم الانتقال بين المراحل.</p>
+            <div class="callout">
+                <span class="callout-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </span>
+                <p><strong>ملاحظة:</strong> تُستخدم تسمية يوم التصوير <strong>D0</strong> كنقطة مرجعية زمنية، وتقاس الفترات بأيام عمل.</p>
+            </div>
+        </div>
+
+        <!-- Table of Contents -->
+        <div id="toc">
+            <h2>فهرس المحتويات</h2>
+            <ul class="space-y-2 text-blue-600">
+                <li><a href="#workflow-diagram" class="hover:underline">مخطط سير العمل العامودي</a></li>
+                <li><a href="#timeline-3day" class="hover:underline">الجدول الزمني (نموذج 3 أيام)</a></li>
+                <li><a href="#stage-00" class="hover:underline">00) نظرة عامة على الجدول الزمني</a></li>
+                <li><a href="#stage-01" class="hover:underline">01) الحجز وتحديد موعد التصوير</a></li>
+                <li><a href="#stage-02" class="hover:underline">02) إنشاء ملف الحلقة وتوليد الكود</a></li>
+                <li><a href="#stage-03" class="hover:underline">03) تصوير الحلقة</a></li>
+                <li><a href="#stage-04" class="hover:underline">04) رفع المواد إلى Google Drive</a></li>
+                <li><a href="#stage-05" class="hover:underline">05) تنزيل المواد + إعادة التسمية</a></li>
+                <li><a href="#stage-06" class="hover:underline">06) نسخة ASC (Assembly Cut)</a></li>
+                <li><a href="#stage-07" class="hover:underline">07) التحرير عبر Sonix — بنية القصة والبرومو</a></li>
+                <li><a href="#stage-08" class="hover:underline">08) الترانسكريبت الكامل + تحديد المقاطع القصيرة</a></li>
+                <li><a href="#stage-09" class="hover:underline">09) مكساج الصوت (Mixdown)</a></li>
+                <li><a href="#stage-10" class="hover:underline">10) الإخراج النهائي والتجميع (Final Assembly & Mastering)</a></li>
+                <li><a href="#stage-11" class="hover:underline">11) حزمة التصاميم والتسويق المرئي</a></li>
+                <li><a href="#stage-12" class="hover:underline">12) إنتاج المقاطع القصيرة (دفعة واحدة)</a></li>
+                <li><a href="#stage-13" class="hover:underline">13) الرفع والجدولة (Bulk Scheduling)</a></li>
+                <li><a href="#stage-14" class="hover:underline">14) الأرشفة والإغلاق (Archiving & Closeout)</a></li>
+                <li><a href="#appendices" class="hover:underline">الملاحق والمرجعيات</a></li>
+            </ul>
+        </div>
+
+        <!-- Vertical Workflow Diagram -->
+        <div id="workflow-diagram">
+            <h2>مخطط سير العمل العامودي</h2>
+            <div class="workflow-container">
+                <div class="workflow-line"></div>
+                <div class="workflow-item">
+                    <div class="workflow-dot">01</div>
+                    <div class="workflow-content"><h4 class="text-lg font-bold">الحجز وتحديد موعد التصوير</h4><p>تثبيت كافة المتغيرات اللوجستية للحلقة بشكل استباقي.</p></div>
+                </div>
+                <div class="workflow-item">
+                    <div class="workflow-dot">02</div>
+                    <div class="workflow-content"><h4 class="text-lg font-bold">إنشاء ملف الحلقة وتوليد الكود</h4><p>إنشاء هيكل رقمي منظم يحتوي على جميع الأصول بشكل آلي.</p></div>
+                </div>
+                <div class="workflow-item">
+                    <div class="workflow-dot">03</div>
+                    <div class="workflow-content"><h4 class="text-lg font-bold">تصوير الحلقة</h4><p>تسجيل المحتوى بأعلى جودة تقنية وتوثيق الملاحظات.</p></div>
+                </div>
+                <div class="workflow-item">
+                    <div class="workflow-dot">04</div>
+                    <div class="workflow-content"><h4 class="text-lg font-bold">رفع المواد إلى Google Drive</h4><p>نقل المواد الخام إلى التخزين السحابي بأمان.</p></div>
+                </div>
+                <div class="workflow-item">
+                    <div class="workflow-dot">05</div>
+                    <div class="workflow-content"><h4 class="text-lg font-bold">تنزيل المواد وإعادة التسمية</h4><p>تجهيز المواد وتطبيق نظام التسمية الموحد.</p></div>
+                </div>
+                <div class="workflow-item">
+                    <div class="workflow-dot">06</div>
+                    <div class="workflow-content"><h4 class="text-lg font-bold">نسخة ASC (Assembly Cut)</h4><p>إنتاج تايملاين خام متزامن ليكون المرجع الزمني الرسمي.</p></div>
+                </div>
+                <div class="workflow-item">
+                    <div class="workflow-dot">07</div>
+                    <div class="workflow-content"><h4 class="text-lg font-bold">التحرير عبر Sonix</h4><p>اتخاذ القرارات التحريرية الكبرى وبناء الخط السردي.</p></div>
+                </div>
+                <div class="workflow-item">
+                    <div class="workflow-dot">08</div>
+                    <div class="workflow-content"><h4 class="text-lg font-bold">الترانسكريبت الكامل والمقاطع القصيرة</h4><p>إنتاج ترانسكريبت مُدقّق وتحديد المقاطع القصيرة.</p></div>
+                </div>
+                <div class="workflow-item">
+                    <div class="workflow-dot">09</div>
+                    <div class="workflow-content"><h4 class="text-lg font-bold">مكساج الصوت (Mixdown)</h4><p>تحسين الصوت وفق معايير البودكاست الاحترافية.</p></div>
+                </div>
+                <div class="workflow-item">
+                    <div class="workflow-dot">10</div>
+                    <div class="workflow-content"><h4 class="text-lg font-bold">الإخراج النهائي والتجميع</h4><p>تجميع كل العناصر لإنتاج النسخة النهائية للحلقة.</p></div>
+                </div>
+                <div class="workflow-item">
+                    <div class="workflow-dot">11</div>
+                    <div class="workflow-content"><h4 class="text-lg font-bold">حزمة التصاميم والتسويق</h4><p>تجهيز العناصر البصرية للترويج على المنصات.</p></div>
+                </div>
+                <div class="workflow-item">
+                    <div class="workflow-dot">12</div>
+                    <div class="workflow-content"><h4 class="text-lg font-bold">إنتاج المقاطع القصيرة</h4><p>تحويل الهايلايت المعتمدة إلى دفعة موحّدة من Reels/Shorts.</p></div>
+                </div>
+                <div class="workflow-item">
+                    <div class="workflow-dot">13</div>
+                    <div class="workflow-content"><h4 class="text-lg font-bold">الرفع والجدولة</h4><p>نشر الحلقة والمقاطع على المنصات بشكل منظم.</p></div>
+                </div>
+                <div class="workflow-item">
+                    <div class="workflow-dot">14</div>
+                    <div class="workflow-content"><h4 class="text-lg font-bold">الأرشفة والإغلاق</h4><p>حفظ نسخة دائمة وكاملة من الحلقة وأصولها.</p></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 3-Day Timeline -->
+        <div id="timeline-3day">
+            <h2>الجدول الزمني (نموذج 3 أيام)</h2>
+            <div class="callout">
+                <span class="callout-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5" /></svg>
+                </span>
+                <p><strong>مهمة متوازية:</strong> هذه العلامة تشير إلى أن المهمة يمكن أن تعمل في نفس الوقت مع مهام أخرى.</p>
+            </div>
+            <div class="timeline-grid">
+                <div class="timeline-day">
+                    <h4>اليوم 1 (D0) - التصوير والمعالجة الأولية</h4>
+                    <div class="timeline-task"><span>03. تصوير الحلقة</span></div>
+                    <div class="timeline-task"><span>04. رفع المواد إلى Drive</span></div>
+                    <div class="timeline-task"><span>05. تنزيل المواد وإعادة التسمية</span></div>
+                    <div class="timeline-task"><span>06. إنشاء نسخة ASC</span></div>
+                </div>
+                <div class="timeline-day">
+                    <h4>اليوم 2 (D1) - التحرير والمونتاج</h4>
+                    <div class="timeline-task">
+                        <span>07. التحرير عبر Sonix</span>
+                    </div>
+                    <div class="timeline-task">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 parallel-icon"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5" /></svg>
+                        <span>08. الترانسكريبت (يبدأ)</span>
+                    </div>
+                    <div class="timeline-task">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 parallel-icon"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5" /></svg>
+                        <span>09. مكساج الصوت</span>
+                    </div>
+                    <div class="timeline-task">
+                        <span>10. الإخراج النهائي والتجميع</span>
+                    </div>
+                     <div class="timeline-task">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 parallel-icon"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5" /></svg>
+                        <span>11. حزمة التصاميم</span>
+                    </div>
+                </div>
+                <div class="timeline-day">
+                    <h4>اليوم 3 (D2) - التسليم النهائي والنشر</h4>
+                    <div class="timeline-task">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 parallel-icon"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5" /></svg>
+                        <span>08. الترانسكريبت (يكتمل)</span>
+                    </div>
+                    <div class="timeline-task"><span>12. إنتاج المقاطع القصيرة</span></div>
+                    <div class="timeline-task"><span>13. الرفع والجدولة</span></div>
+                    <div class="timeline-task"><span>14. الأرشفة والإغلاق</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stages Details -->
+        <div id="stage-00">
+            <h2>00) نظرة عامة على الجدول الزمني</h2>
+            <p>يعتمد الجدول الزمني على D0 كنقطة انطلاق. جميع الأزمنة المذكورة هي بالحد الأقصى وتقاس بأيام العمل.</p>
+            <div class="overflow-x-auto">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>المرحلة</th>
+                            <th>الزمن المقدر (SLA)</th>
+                            <th>الاعتماد السابق</th>
+                            <th>ملاحظات أساسية</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>01</td><td>الحجز وتحديد موعد التصوير</td><td>دقيقة واحدة — عملية أوتوماتيكية</td><td>—</td><td>وإخطار الفريق والمعنيين.</td></tr>
+                        <tr><td>02</td><td>إنشاء ملف الحلقة + كود فريد</td><td>أوتوماتيكي</td><td>01</td><td>إنشاء صفحة الحلقة + توليد TQ_Rec### + استنساخ هيكل المجلدات القياسي. + إنشاء حدث تقويم مركزي</td></tr>
+                        <tr><td>03</td><td>تصوير الحلقة</td><td>حسب الحجز</td><td>01–02</td><td>توثيق الملاحظات الحية لتسريع المونتاج.</td></tr>
+                        <tr><td>04</td><td>رفع المواد إلى Drive (والتحويل)</td><td>نفس اليوم (D0)</td><td>03</td><td>تحويل مسبق إلى H.265 (اذا مطلوب) وفق المعايير.</td></tr>
+                        <tr><td>05</td><td>تنزيل المواد + إعادة التسمية</td><td>≤ 4 ساعات</td><td>04</td><td>تطبيق نمط التسمية القياسي بدقة.</td></tr>
+                        <tr><td>06</td><td>نسخة ASC</td><td>نفس اليوم (D0)</td><td>05</td><td>تُنتج نسخ: Sonix (للتحرير) + DSX للصوت.</td></tr>
+                        <tr><td>07</td><td>التحرير عبر Sonix</td><td>≤ 1 يوم</td><td>06</td><td>تحديد البرومو وبداية/نهاية الحلقة والكواليس والحذف. تسليم كل شيء للمونتير مع الاعتماد التحريري.</td></tr>
+                        <tr><td>08</td><td>الترانسكريبت الكامل + تحديد المقاطع القصيرة</td><td>≤ 2 يوم</td><td>06</td><td>تحقيق وتدقيق لغوي شامل. تحديد المقاطع القصيرة بالألوان والطريقة المعتمدة — تعمل بالتوازي مع المونتاج بعد الاعتماد التحريري.</td></tr>
+                        <tr><td>09</td><td>مكساج الصوت (Mixdown)</td><td>≤ 1 يوم</td><td>06</td><td>مطابقة التايمكود مع نسخة ASC بدقة. يُسلَّم مع الاعتماد التحريري.</td></tr>
+                        <tr><td>10</td><td>التفنيش (Master) + التصاميم</td><td>≤ 1 يوم</td><td>07, 09</td><td>لا يبدأ قبل الاعتماد التحريري النهائي. إنهاء الحلقة في نفس يوم الاعتماد.</td></tr>
+                        <tr><td>11</td><td>إنتاج المقاطع القصيرة</td><td>1 يوم كامل</td><td>10</td><td>بعد الاعتماد والتدقيق اللغوي؛ أتمتة إعداد التايملاين والعمليات المرافقة.</td></tr>
+                        <tr><td>12</td><td>الرفع والجدولة (Bulk)</td><td>نفس اليوم</td><td>10–11</td><td>الجدولة مرتبطة بتاريخ نشر الحلقة الرسمي.</td></tr>
+                        <tr><td>13</td><td>الأرشفة والإغلاق</td><td>نفس يوم التفنيش</td><td>12</td><td>حفظ كل النسخ والمشاريع + تقرير الإغلاق.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="callout mt-4">
+                <span class="callout-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </span>
+                <p><strong>تنبيه مصطلحي:</strong> تم اعتماد DSX باعتبارها نسخة الصوت المتعددة الطبقات (سابقًا وردت بصيغة DTMX).</p>
+            </div>
+        </div>
+
+        <div id="stage-01">
+            <h2>01) الحجز وتحديد موعد التصوير</h2>
+            <p><strong>الهدف:</strong> تثبيت كافة المتغيرات اللوجستية للحلقة بشكل استباقي لضمان سير يوم التصوير بسلاسة ومنع أي مفاجآت.</p>
+            <ul>
+                <li><strong>الزمن المقدر:</strong> في نفس يوم تأكيد الضيف.</li>
+                <li><strong>المسؤول:</strong> المنتج.</li>
+                <li><strong>المحرر/المنتج:</strong> يمنح الموافقة النهائية لإنشاء الحدث بعد اكتمال التأكيدات.</li>
+            </ul>
+            <h3>خيـارات التصوير:</h3>
+            <ul>
+                <li><strong>عن بُعد (Zoom/Cast):</strong> تجهيز رابط الجلسة، إرساله، التأكد مسبقًا من جودة الإنترنت والصوت والصورة.</li>
+                <li><strong>في الاستوديو (بيت أحمد):</strong> حجز المساحة والمعدات، تجهيز الإضاءة والكاميرات والصوت.</li>
+                <li><strong>هجين:</strong> مزيج بين اتصال افتراضي وتصوير ميداني؛ يلزم التنسيق المزدوج ومزامنة الإشارات.</li>
+            </ul>
+        </div>
+
+        <div id="stage-02">
+            <h2>02) إنشاء ملف الحلقة وتوليد الكود</h2>
+            <p><strong>الهدف:</strong> إنشاء هيكل رقمي منظم يحتوي على جميع الأصول بشكل آلي وسريع.</p>
+            <ul>
+                <li><strong>الزمن المقدر:</strong> فوري — أوتوماتيكي بعد الحجز.</li>
+                <li><strong>المسؤول:</strong> المحرر.</li>
+            </ul>
+            <h3>الوصف والمخرجات:</h3>
+            <ul>
+                <li><strong>كود فريد للحلقة:</strong> مثل TQ_Rec181؛ المعرّف المرجعي في كل المستندات.</li>
+                <li><strong>هيكل مجلدات قياسي على Google Drive:</strong> استنساخ Template يغطي قبل/أثناء/بعد الإنتاج والتسليم النهائي.</li>
+                <li><strong>ورقة بيانات الحلقة (Episode Sheet):</strong> تُنشأ تلقائيًا وتتضمن الكود، الضيف، العنوان المبدئي، تاريخ التصوير، وروابط المجلدات.</li>
+            </ul>
+        </div>
+
+        <div id="stage-03">
+            <h2>03) تصوير الحلقة</h2>
+            <p><strong>الهدف:</strong> تسجيل المحتوى بأعلى جودة تقنية، مع إجراءات تضمن سهولة المونتاج وتوثيق الملاحظات التحريرية والفنية بدقة.</p>
+            <ul>
+                <li><strong>الزمن المقدر:</strong> حسب الحجز.</li>
+                <li><strong>المسؤول:</strong> DOP، مهندس الصوت، بمشاركة المنتج/المحرر لتوثيق الملاحظات.</li>
+            </ul>
+            <h3>الخطوات الأساسية:</h3>
+            <ul>
+                <li><strong>المزامنة (Sync):</strong> كلاكيت/صفقة/بديل معتمد قبل البدء لضمان تزامن الصوت والصورة — إلزامي.</li>
+                <li><strong>اختبار الصوت:</strong> تسجيل 10 ثوانٍ صمت لقياس الضوضاء؛ ضبط الحوار قرب −12 LUFS.</li>
+                <li><strong>توثيق الملاحظات بزمن (تايمكود)</strong> داخل ورقة المتابعة.</li>
+            </ul>
+        </div>
+        
+        <div id="stage-04">
+            <h2>04) رفع المواد إلى Google Drive</h2>
+            <p><strong>الهدف:</strong> نقل المواد الخام إلى التخزين السحابي المركزي بأمان، مع التحويل المسبق وتنظيم صحيح.</p>
+             <ul>
+                <li><strong>الزمن المقدر:</strong> D0.</li>
+                <li><strong>المسؤول:</strong> DIT أو المونتير المساعد.</li>
+            </ul>
+        </div>
+
+        <div id="stage-05">
+            <h2>05) تنزيل المواد + إعادة التسمية</h2>
+            <p><strong>الهدف:</strong> تجهيز المواد على جهاز المونتير وتطبيق نظام التسمية الموحد لتمكين الأتمتة وربط الملفات.</p>
+             <ul>
+                <li><strong>الزمن المقدر:</strong> ≤ 4 ساعات.</li>
+                <li><strong>المسؤول:</strong> المونتير.</li>
+            </ul>
+        </div>
+
+        <div id="stage-06">
+            <h2>06) نسخة ASC (Assembly Cut)</h2>
+            <p><strong>الهدف:</strong> إنتاج تايملاين خام متزامن ودقيق يشمل جميع الكاميرات والصوت ليكون المرجع الزمني الرسمي، مع تجهيز نسخ مخصصة لـ Sonix وDSX داخل DaVinci Resolve.</p>
+            <ul>
+                <li><strong>الزمن المقدر:</strong> D0.</li>
+                <li><strong>المسؤول:</strong> المونتير.</li>
+            </ul>
+        </div>
+
+        <div id="stage-07">
+            <h2>07) التحرير عبر Sonix — بنية القصة والبرومو</h2>
+            <p><strong>الهدف:</strong> اتخاذ القرارات التحريرية الكبرى وبناء الخط السردي النهائي قبل دخول المونتاج الإبداعي.</p>
+            <ul>
+                <li><strong>الزمن المقدر:</strong> ≤ يوم عمل.</li>
+                <li><strong>المسؤول:</strong> فريق التحرير/المنتج.</li>
+            </ul>
+            <h3>معايير التظليل والتنسيق على Sonix:</h3>
+            <div class="overflow-x-auto">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>الاستخدام</th>
+                            <th>اللون</th>
+                            <th>الكود Hex</th>
+                            <th>الوصف</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>تحديد البرومو</td><td><span class="tag tag-green">أخضر فاتح</span></td><td>#A5D6A7</td><td>تحديد مقاطع البرومو مع In/Out</td></tr>
+                        <tr><td>بداية الحلقة</td><td><span class="tag tag-pink">وردي فاتح</span></td><td>#F8BBD0</td><td>بداية الحلقة الكاملة</td></tr>
+                        <tr><td>نهاية الحلقة</td><td><span class="tag tag-pink">وردي داكن</span></td><td>#CE7E8A</td><td>نهاية الحلقة الكاملة</td></tr>
+                        <tr><td>ملاحظات تقنية</td><td><span class="tag tag-yellow">أصفر</span></td><td>#FFD54F</td><td>مشاكل تقنية: صوت/صورة/فوكس</td></tr>
+                        <tr><td>ملاحظات الحذف</td><td><span class="tag">شطب (S)</span></td><td>—</td><td>شطب الجمل/المقاطع المطلوب حذفها</td></tr>
+                        <tr><td>تحديد الكواليس</td><td><span class="tag tag-blue">أزرق فاتح</span></td><td>#81D4FA</td><td>مقاطع خاصة بالكواليس</td></tr>
+                        <tr><td>مقطع قصير ١</td><td><span class="tag tag-purple">بنفسجي غامق</span></td><td></td><td>مقاطع قصيرة، يتم الفصل بين المقطع والثاني باختلاف اللون الغامق والفاتح.</td></tr>
+                        <tr><td>مقطع قصير ٢</td><td><span class="tag tag-purple">بنفسجي فاتح</span></td><td></td><td></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div id="stage-08">
+            <h2>08) الترانسكريبت الكامل + تحديد المقاطع القصيرة</h2>
+            <p><strong>الهدف:</strong> إنتاج ترانسكريبت كامل مُنظّف ومدقّق وجاهز للنشر، مع تحديد شامل للمقاطع القصيرة وفق ألوان/معايير Sonix.</p>
+            <ul>
+                <li><strong>الزمن المقدر:</strong> ≤ يومي عمل (يعمل بالتوازي مع المونتاج بعد §07).</li>
+                <li><strong>المسؤول:</strong> فريق التحرير/التدقيق اللغوي.</li>
+            </ul>
+        </div>
+
+        <div id="stage-09">
+            <h2>09) مكساج الصوت (Mixdown)</h2>
+            <p><strong>الهدف:</strong> تحسين الصوت وفق معايير البودكاست الاحترافية لضمان تجربة استماع متسقة.</p>
+             <ul>
+                <li><strong>الزمن المقدر:</strong> ≤ يوم عمل بعد استلام ASC.</li>
+                <li><strong>المسؤول:</strong> مهندس الصوت.</li>
+            </ul>
+        </div>
+
+        <div id="stage-10">
+            <h2>10) الإخراج النهائي والتجميع (Final Assembly & Mastering)</h2>
+            <p><strong>الهدف:</strong> تجميع فيديو/صوت/جرافيكس لإنتاج النسخة النهائية، مع إعداد برومو وربطه عند الحاجة وضمان أعلى جودة خالية من الأخطاء.</p>
+             <ul>
+                <li><strong>الزمن المقدر:</strong> ≤ يوم عمل.</li>
+                <li><strong>المسؤول:</strong> المونتير، مصمم الجرافيكس، بإشراف المنتج.</li>
+            </ul>
+        </div>
+
+        <div id="stage-11">
+            <h2>11) حزمة التصاميم والتسويق المرئي</h2>
+            <p><strong>الهدف:</strong> تجهيز العناصر البصرية للترويج مع الحفاظ على الهوية البصرية المعتمدة.</p>
+             <ul>
+                <li><strong>الزمن المقدر:</strong> ≤ يوم عمل.</li>
+                <li><strong>المسؤول:</strong> مصمم الجرافيكس بالتنسيق مع التسويق وبإشراف المنتج.</li>
+            </ul>
+        </div>
+
+        <div id="stage-12">
+            <h2>12) إنتاج المقاطع القصيرة (دفعة واحدة)</h2>
+            <p><strong>الهدف:</strong> تحويل الهايلايت المعتمدة من Sonix إلى دفعة موحّدة من Reels/Shorts عبر أتمتة القصّ والثامبنيل والتسمية والرندر مع الالتزام بالهوية والمعايير التحريرية.</p>
+             <ul>
+                <li><strong>الزمن المقدر:</strong> يوم عمل كامل.</li>
+                <li><strong>المسؤول:</strong> فريق السوشال/المونتير المخصص بإشراف المنتج.</li>
+            </ul>
+        </div>
+
+        <div id="stage-13">
+            <h2>13) الرفع والجدولة (Bulk Scheduling)</h2>
+            <p><strong>الهدف:</strong> نشر الحلقة والمقاطع القصيرة على المنصات بشكل منظم وموحّد ومتزامن لتعظيم الوصول، مع توثيق كامل في الشيت.</p>
+             <ul>
+                <li><strong>الزمن المقدر:</strong> نفس يوم اكتمال المقاطع.</li>
+                <li><strong>المسؤول:</strong> فريق السوشال/مدير النشر بإشراف المنتج.</li>
+            </ul>
+        </div>
+
+        <div id="stage-14">
+            <h2>14) الأرشفة والإغلاق (Archiving & Closeout)</h2>
+            <p><strong>الهدف:</strong> حفظ نسخة دائمة، كاملة، ومنظمة من الحلقة وأصولها لتفريغ الـ Hot Storage وتأمين الاستخدام/الاشتقاق المستقبلي.</p>
+             <ul>
+                <li><strong>الزمن المقدر:</strong> ≤ يوم واحد بعد النشر.</li>
+                <li><strong>المسؤول:</strong> DIT/مسؤول الأرشيف (بالتنسيق مع المونتير).</li>
+            </ul>
+        </div>
+        
+        <div id="appendices">
+            <h2>الملاحق والمرجعيات</h2>
+            <h3>مصطلحات زمنية:</h3>
+            <ul>
+                <li><strong>D0:</strong> يوم التصوير.</li>
+                <li><strong>SLA:</strong> الزمن الأقصى لإنجاز المرحلة.</li>
+                <li><strong>Gate:</strong> شرط/اعتماد نهاية المرحلة للانتقال لما يليها.</li>
+            </ul>
+            <h3>مستندات مرجعية خارجية:</h3>
+            <ul>
+                <li>«معايير تحويل الفيديو (Video Transcoding Standards)».</li>
+                <li>«سياسة التسمية القياسية (Naming Policy)».</li>
+                <li>«إرشادات الهوية البصرية».</li>
+            </ul>
+            <h3>برمجيات/أدوات أساسية:</h3>
+            <p>DaVinci Resolve، Sonix.ai، Vista Social، أدوات Bulk Rename، سكربتات TQ_* المخصصة.</p>
+            <div class="callout mt-6 border-r-4 border-red-500">
+                <span class="callout-icon text-red-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                </span>
+                <p><strong>تذكير نهائي:</strong> هذا الدليل هو المرجع التنفيذي الوحيد. أي خروج عن الإجراءات يتطلب موافقة صريحة من إدارة الإنتاج، مع توثيق القرار في ورقة العمل الخاصة بالحلقة.</p>
+            </div>
+            <hr class="my-8">
+            <h3 class="text-gray-500">ملحق 1 : التسميات المعتمدة</h3>
+            <p class="text-gray-400">سيتم تعبئته لاحقاً بعد اعتماد النسخة الأولى من الدليل</p>
+            <h3 class="text-gray-500">ملحق 2 : هيكل مجلد الحلقة</h3>
+            <p class="text-gray-400">سيتم تعبئته لاحقاً بعد اعتماد النسخة الأولى من الدليل</p>
+            <h3 class="text-gray-500">ملحق 3 : صلاحيات الأدوار</h3>
+            <p class="text-gray-400">سيتم تعبئته لاحقاً بعد اعتماد النسخة الأولى من الدليل</p>
+            <h3 class="text-gray-500">ملحق 4 : مسئوليات التواصل والابلاغ</h3>
+            <p class="text-gray-400">سيتم تعبئته لاحقاً بعد اعتماد النسخة الأولى من الدليل</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
